@@ -10,7 +10,9 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
+  <body id="application">
+  <div>
     <%= yield %>
+  </div>
   </body>
 </html>
