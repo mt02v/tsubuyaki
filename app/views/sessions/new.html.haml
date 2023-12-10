@@ -1,2 +1,19 @@
-%h1 Sessions#new
-%p Find me in app/views/sessions/new.html.haml
+#Sessions-new
+.col-xs-5.login-content
+  - if action_name == "create"
+    .alert.alert-danger
+      メールアドレスまたはパスワードが正しくありません。
+  = form_for @user, url: sessions_path, method: :post do |f|
+    %h2
+      ログイン
+    .form_body
+      .form_group
+        = f.label :email,"メールアドレス：hello@cyllabus.jp", class: "control-label"
+        = f.text_field :email, class: "form-control"
+      .form_group
+        = f.label :password, "パスワード :6文字以上", class: "control-label"
+        = f.password_field :password, class: "form-control"
+      = f.submit "ログイン", class: "btn btn-succcess"
+      = link_to root_path, class: "pull-right signup" do
+        会員登録する
+      .clear
